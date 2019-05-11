@@ -1,4 +1,4 @@
-<h1> Joguinhos Grátis <h1>
+<h1> Joguinhos Grátis </h1>
 
 This Telegram Bot was developed to send Game Deals to a Telegram Channel<br>
 The deals are retrieved from subreddit r/gamedeals <br>
