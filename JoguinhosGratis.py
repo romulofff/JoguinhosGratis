@@ -38,7 +38,7 @@ for submission in subreddit.stream.submissions(skip_existing=True):
     if "%" in title:
         if title[title.find("%")-3:title.find("%")+1] == "100%":
             msg = "*------------ESSE É GRÁTIS------------* \n"
-            msg += title + " " + url
+            msg += title + " " + url + " #gratis #free"
             print(INDEX,msg)
             status = bot.send_message(chat_id="@Testesrfff", text=msg, parse_mode=telegram.ParseMode.MARKDOWN)
         elif int(title[title.find("%")-2:title.find("%")]) > 60:
