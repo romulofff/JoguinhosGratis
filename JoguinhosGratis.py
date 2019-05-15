@@ -18,14 +18,15 @@ import re
 client_id = os.environ['id']
 client_secret = os.environ['secret']
 user_agent = os.environ['agent']
-username = os.environ['username']
+# username = os.environ['username']
 password = os.environ['password']
 telegram_token = os.environ['token']
+username="rfbots"
 # Connecting to Telegram Bot
 bot = telegram.Bot(token=telegram_token)
 
 # Connecting to Reddit App
-reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agent=user_agent, username=username, password=password)
+reddit = praw.Reddit(user_agent=user_agent, client_secret=client_secret, client_id=client_id, username=username, password=password)
 subreddit = reddit.subreddit("gamedeals")
 
 status = bot.send_message(chat_id="@Testesrfff", text="NOVO TESTE INICIANDO", parse_mode=telegram.ParseMode.HTML)
