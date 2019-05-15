@@ -18,10 +18,10 @@ import re
 client_id = os.environ['id']
 client_secret = os.environ['secret']
 user_agent = os.environ['agent']
-# username = os.environ['username']
+username = os.environ['username']
 password = os.environ['password']
 telegram_token = os.environ['token']
-username="rfbots"
+
 # Connecting to Telegram Bot
 bot = telegram.Bot(token=telegram_token)
 

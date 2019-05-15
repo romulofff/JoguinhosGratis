@@ -1,1 +1,1 @@
-web: python JoguinhosGratis.py
+Joguinhosgratis: python "JoguinhosGratis.py"
