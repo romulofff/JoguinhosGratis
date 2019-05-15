@@ -30,6 +30,7 @@ reddit = praw.Reddit(user_agent=user_agent, client_secret=client_secret, client_
 subreddit = reddit.subreddit("gamedeals")
 
 status = bot.send_message(chat_id="@Testesrfff", text="NOVO TESTE INICIANDO", parse_mode=telegram.ParseMode.HTML)
+
 INDEX = 0
 for submission in subreddit.stream.submissions(skip_existing=True):
     
@@ -42,7 +43,7 @@ for submission in subreddit.stream.submissions(skip_existing=True):
             msg += title + " " + url + " #gratis #free"
             print(INDEX,msg)
             status = bot.send_message(chat_id="@Testesrfff", text=msg, parse_mode=telegram.ParseMode.MARKDOWN)
-        elif int(title[title.find("%")-2:title.find("%")]) > 60:
+        elif int(title[title.find("%")-2:title.find("%")]) > 0:
             percent = title.find("%")
             msg += title + " " + url
             print(INDEX,msg)
