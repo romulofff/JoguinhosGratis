@@ -29,7 +29,7 @@ bot = telegram.Bot(token=telegram_token)
 reddit = praw.Reddit(user_agent=user_agent, client_secret=client_secret, client_id=client_id, username=username, password=password)
 subreddit = reddit.subreddit("gamedeals")
 
-status = bot.send_message(chat_id="@Testesrfff", text="NOVO TESTE INICIANDO", parse_mode=telegram.ParseMode.HTML)
+# status = bot.send_message(chat_id="@joguinhosgratis", text="NOVO TESTE INICIANDO", parse_mode=telegram.ParseMode.HTML)
 
 INDEX = 0
 for submission in subreddit.stream.submissions(skip_existing=True):
@@ -39,13 +39,15 @@ for submission in subreddit.stream.submissions(skip_existing=True):
     msg = ""
     if "%" in title:
         if title[title.find("%")-3:title.find("%")+1] == "100%":
-            msg = "*------------ESSE É GRÁTIS------------* \n"
+            msg = "*-------------- ESSE É GRÁTIS --------------* \n"
             msg += title + " " + url + " #gratis #free"
             print(INDEX,msg)
-            status = bot.send_message(chat_id="@Testesrfff", text=msg, parse_mode=telegram.ParseMode.MARKDOWN)
-        elif int(title[title.find("%")-2:title.find("%")]) > 0:
+            status = bot.send_message(chat_id="@joguinhosgratis", text=msg, parse_mode=telegram.ParseMode.MARKDOWN)
+        elif int(title[title.find("%")-2:title.find("%")]) > 60:
             percent = title.find("%")
             msg += title + " " + url
             print(INDEX,msg)
-            status = bot.send_message(chat_id="@Testesrfff", text=msg, parse_mode=telegram.ParseMode.HTML)
+            status = bot.send_message(chat_id="@joguinhosgratis", text=msg, parse_mode=telegram.ParseMode.HTML)
+    else: continue
     INDEX+=1
+    
