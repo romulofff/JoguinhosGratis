@@ -1,1 +1,1 @@
-web: python JoguinhosGratis.py
+web: python server.py
