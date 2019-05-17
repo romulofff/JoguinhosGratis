@@ -14,7 +14,8 @@ Telegram: @Romulofff
 import praw
 import telegram 
 import os
-import re
+import traceback
+
 client_id = os.environ['id']
 client_secret = os.environ['secret']
 user_agent = os.environ['agent']
@@ -31,22 +32,27 @@ subreddit = reddit.subreddit("gamedeals")
 
 
 INDEX = 0
-for submission in subreddit.stream.submissions(skip_existing=True):
-    
-    title = submission.title
-    url = submission.url
-    msg = ""
-    if "%" in title:
-        if title[title.find("%")-3:title.find("%")+1] == "100%":
-            msg = "*-------------- ESSE É GRÁTIS --------------* \n"
-            msg += title + " " + url + " #gratis #free"
-            print(INDEX,msg)
-            status = bot.send_message(chat_id="@joguinhosgratis", text=msg, parse_mode=telegram.ParseMode.MARKDOWN)
-        elif int(title[title.find("%")-2:title.find("%")]) > 60:
-            percent = title.find("%")
-            msg += title + " " + url
-            print(INDEX,msg)
-            status = bot.send_message(chat_id="@joguinhosgratis", text=msg, parse_mode=telegram.ParseMode.HTML)
-    else: continue
-    INDEX+=1
-    
+while True:
+    try:
+        for submission in subreddit.stream.submissions(skip_existing=True):
+            
+            title = submission.title
+            url = submission.url
+            msg = ""
+            if "%" in title:
+                if title[title.find("%")-3:title.find("%")+1] == "100%":
+                    msg = "*-------------- ESSE É GRÁTIS --------------* \n"
+                    msg += title + " " + url + " #gratis #free"
+                    print(INDEX,msg)
+                    status = bot.send_message(chat_id="@joguinhosgratis", text=msg, parse_mode=telegram.ParseMode.MARKDOWN)
+                elif int(title[title.find("%")-2:title.find("%")]) > 60:
+                    percent = title.find("%")
+                    msg += title + " " + url
+                    print(INDEX,msg)
+                    status = bot.send_message(chat_id="@joguinhosgratis", text=msg, parse_mode=telegram.ParseMode.HTML)
+            else: continue
+            INDEX+=1
+    except:
+        exec_info = traceback.format_exc()
+        status = bot.send_message(chat_id="@Testesrfff", text=("**Live log:**\n\n{exec_info}"), parse_mode=telegram.ParseMode.HTML)
+        
