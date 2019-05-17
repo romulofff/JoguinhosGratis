@@ -30,6 +30,8 @@ bot = telegram.Bot(token=telegram_token)
 reddit = praw.Reddit(user_agent=user_agent, client_secret=client_secret, client_id=client_id, username=username, password=password)
 subreddit = reddit.subreddit("gamedeals")
 
+status = bot.send_message(chat_id="@Testesrfff", text="It's alive from rasp.", parse_mode=telegram.ParseMode.HTML)
+        
 
 INDEX = 0
 while True:
