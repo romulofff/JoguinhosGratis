@@ -44,7 +44,7 @@ while True:
             if "%" in title:
                 if title[title.find("%")-3:title.find("%")+1] == "100%":
                     msg = "*-------------- ESSE É GRÁTIS --------------* \n"
-                    msg += title + " " + url + " #gratis #free"
+                    msg += title + " \n" + url + " #gratis #free"
                     print(INDEX,msg)
                     try:
                         status = bot.send_message(chat_id="@joguinhosgratis", text=msg, parse_mode=telegram.ParseMode.MARKDOWN)
@@ -52,7 +52,7 @@ while True:
                         status = bot.send_message(chat_id="@joguinhosgratis", text=msg, parse_mode=telegram.ParseMode.HTML)
                 elif int(title[title.find("%")-2:title.find("%")]) > 60:
                     percent = title.find("%")
-                    msg += title + " " + url
+                    msg += title + " \n" + url
                     print(INDEX,msg)
                     try:
                         status = bot.send_message(chat_id="@joguinhosgratis", text=msg, parse_mode=telegram.ParseMode.HTML)
