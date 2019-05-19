@@ -46,15 +46,29 @@ while True:
                     msg = "*-------------- ESSE É GRÁTIS --------------* \n"
                     msg += title + " " + url + " #gratis #free"
                     print(INDEX,msg)
-                    status = bot.send_message(chat_id="@joguinhosgratis", text=msg, parse_mode=telegram.ParseMode.MARKDOWN)
+                    try:
+                        status = bot.send_message(chat_id="@joguinhosgratis", text=msg, parse_mode=telegram.ParseMode.MARKDOWN)
+                    except:
+                        status = bot.send_message(chat_id="@joguinhosgratis", text=msg, parse_mode=telegram.ParseMode.HTML)
                 elif int(title[title.find("%")-2:title.find("%")]) > 60:
                     percent = title.find("%")
                     msg += title + " " + url
                     print(INDEX,msg)
-                    status = bot.send_message(chat_id="@joguinhosgratis", text=msg, parse_mode=telegram.ParseMode.HTML)
+                    try:
+                        status = bot.send_message(chat_id="@joguinhosgratis", text=msg, parse_mode=telegram.ParseMode.HTML)
+                    except:
+                        status = bot.send_message(chat_id="@joguinhosgratis", text=msg, parse_mode=telegram.ParseMode.MARKDOWN)
+                INDEX+=1
             else: continue
-            INDEX+=1
+
+    except (KeyboardInterrupt):
+        print("Keyboard Interrupt")
+        exit()
+
     except:
         exec_info = traceback.format_exc()
-        status = bot.send_message(chat_id="@Testesrfff", text=("**Live log:**\n\n{exec_info}"), parse_mode=telegram.ParseMode.HTML)
-        
+        try:
+            status = bot.send_message(chat_id="@Testesrfff", text=("**Live log:**\n\n{}").format(exec_info), parse_mode=telegram.ParseMode.HTML)
+        except:
+            status = bot.send_message(chat_id="@Testesrfff", text=("**Live log:**\n\n{}").format(exec_info), parse_mode=telegram.ParseMode.MARKDOWN)
+    
