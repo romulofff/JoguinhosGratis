@@ -1,6 +1,6 @@
 <h1> Joguinhos Grátis </h1>
 
-This Telegram Bot was developed to send Game Deals to Telegram Channel: @JoguinhosGratis<br>
+This Telegram Bot was developed to post Game Deals to Telegram Channel: @JoguinhosGratis<br>
 The deals are retrieved from subreddit r/gamedeals <br>
 
 You can access the channel from the link https://t.me/JoguinhosGratis <br>
