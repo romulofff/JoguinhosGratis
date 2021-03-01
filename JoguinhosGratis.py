@@ -31,7 +31,8 @@ reddit = praw.Reddit(user_agent=user_agent, client_secret=client_secret, client_
 subreddit = reddit.subreddit("gamedeals")
 
 status = bot.send_message(chat_id="@Testesrfff", text="It's alive from rasp.", parse_mode=telegram.ParseMode.HTML)
-        
+
+banned_stores = ["reddit.com", "amazon.com", "bestbuy.com", "game.co.uk", "gamebillet.com", "groupees.com", "itch.io"]        
 
 INDEX = 0
 while True:
@@ -41,6 +42,9 @@ while True:
             title = submission.title
             url = submission.url
             msg = ""
+            for store in banned_stores:
+                if store in submission.url:
+                    continue
             if "%" in title:
                 if title[title.find("%")-3:title.find("%")+1] == "100%":
                     msg = "*-------------- ESSE É GRÁTIS --------------* \n"
