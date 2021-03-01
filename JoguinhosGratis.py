@@ -1,5 +1,6 @@
 '''
-This Telegram Bot was developed to send Game Deals to a Telegram Channel
+This Telegram Bot was developed to send Game Deals to a Telegram Channel.
+Check t.me/joguinhosgratis
 The deals are retrieved from subreddit r/gamedeals
 
 Only deals over 60% discount is shared.
