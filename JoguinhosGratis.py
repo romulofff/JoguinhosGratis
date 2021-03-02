@@ -39,14 +39,17 @@ INDEX = 0
 while True:
     try:
         for submission in subreddit.stream.submissions(skip_existing=True):
-            
             title = submission.title
             url = submission.url
             msg = ""
+            skip = False
             for store in banned_stores:
                 if store in submission.url:
-                    continue
-            if "%" in title:
+                    skip = True
+                    break
+            if skip:
+                continue
+            elif "%" in title:
                 if title[title.find("%")-3:title.find("%")+1] == "100%":
                     msg = "*-------------- ESSE É GRÁTIS --------------* \n"
                     msg += title + " \n" + url + " #gratis #free"
