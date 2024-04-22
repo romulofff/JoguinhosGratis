@@ -1,3 +1,5 @@
+<h1>Unfortunately we had to deactivate this bot due to Reddit's abusive pricing plans.</h1>
+
 <h1> Joguinhos Grátis </h1>
 
 This Telegram Bot was developed to post Game Deals to Telegram Channel: @JoguinhosGratis<br>
